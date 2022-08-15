@@ -1,7 +1,7 @@
 const request = require("request");
 const geocode = require("./geocode");
 
-const weather = ({ latitude, longitude }, callback) => {
+const weather = (latitude, longitude, callback) => {
   const url = `http://api.weatherstack.com/current?access_key=1abca9ad80d041237953d9abaad6c215&query=${latitude},${longitude}&units=m`;
 
   request({ url: url, json: true }, (err, res) => {
