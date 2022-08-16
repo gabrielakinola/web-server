@@ -20,4 +20,6 @@ const weather = (latitude, longitude, callback) => {
   });
 };
 
+//exporting weather forecast function
+
 module.exports = weather;
