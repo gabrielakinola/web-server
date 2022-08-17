@@ -36,10 +36,10 @@ app.get("/weather", (req, res) => {
   const address = req.query.address;
 
   if (!address) {
-    return res.send({ error: "You must provide a search term" });
+    return res.send({ error: "You must provide an address" });
   }
 
-  geocode(address, (err, { latitude, longitude, location }) => {
+  geocode(address, (err, { latitude, longitude, location } = {}) => {
     if (err) {
       console.log({ err });
       return res.send({ err });
