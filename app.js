@@ -7,8 +7,8 @@ const weather = require("./utils/forecast");
 const app = express();
 
 const publicDirectoryPath = path.join(__dirname, "../public");
-const viewPath = path.join(__dirname, "../templates/views");
-const partialPath = path.join(__dirname, "../templates/partials");
+const viewPath = path.join(__dirname, "./templates/views");
+const partialPath = path.join(__dirname, "./templates/partials");
 
 app.use(express.static(publicDirectoryPath));
 
@@ -16,9 +16,9 @@ app.set("view engine", "hbs");
 app.set("views", viewPath);
 hbs.registerPartials(partialPath);
 
-// app.get("/", (req, res) => {
-//   res.render("index");
-// });
+app.get("/", (req, res) => {
+  res.render("index");
+});
 
 // app.get("/products", (req, res) => {
 //   console.log(req.query.search);
