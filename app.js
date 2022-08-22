@@ -42,7 +42,11 @@ app.get("/weather", (req, res) => {
 });
 
 app.get("*", (req, res) => {
-  res.render("404page");
+  res.render("404page", {
+    title: "404",
+    name: "Akinola Gabriel",
+    errorMessages: "Page not found",
+  });
 });
 
 app.listen(3000, () => {
