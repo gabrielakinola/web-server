@@ -20,19 +20,7 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 
-// app.get("/products", (req, res) => {
-//   console.log(req.query.search);
-//   res.send({
-//     products: [],
-//   });
-// });
-
 app.get("/weather", (req, res) => {
-  // const weather = [
-  //   { forecast: " It is snowing", location: "philadelphia" },
-  //   { forecast: "It is sunny", location: "chicago" },
-  // ];
-
   const address = req.query.address;
 
   if (!address) {
@@ -51,21 +39,6 @@ app.get("/weather", (req, res) => {
       res.send({ forecastdata, location, address });
     });
   });
-
-  //   const searchresults = weather.filter((geo) => {
-  //     return geo.location === search;
-  //   });
-
-  //   res.send(searchresults);
-  //   console.log(searchresults);
-  // });
-
-  // app.get("/help", (req, res) => {
-  //   res.send("Help");
-  // });
-
-  // app.get("/about", (req, res) => {
-  //   res.send("About page");
 });
 
 app.listen(3000, () => {
