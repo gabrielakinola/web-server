@@ -6,7 +6,7 @@ const weather = require("./utils/forecast");
 
 const app = express();
 
-const publicDirectoryPath = path.join(__dirname, "../public");
+const publicDirectoryPath = path.join(__dirname, "./public");
 const viewPath = path.join(__dirname, "./templates/views");
 const partialPath = path.join(__dirname, "./templates/partials");
 
