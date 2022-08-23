@@ -26,12 +26,11 @@ app.get("/weather", (req, res) => {
   const address = req.query.address;
 
   if (!address) {
-    return res.send({ error: "You must provide an address" });
+    return res.send({ err: "You must provide an address" });
   }
 
   geocode(address, (err, { latitude, longitude, location } = {}) => {
     if (err) {
-      console.log({ err });
       return res.send({ err });
     }
     weather(latitude, longitude, (err, forecastdata) => {

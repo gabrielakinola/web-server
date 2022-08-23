@@ -12,7 +12,7 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="/style.css">
-    <script src="/js/script.js"></script>
+    
     <!-- JavaScript Bundle with Popper -->
 
   </head>
@@ -20,7 +20,18 @@
     <div class="main-content">{{>header}}
 
     <p>Use this site to get your weather forecast</p>
+    <form action="">
+      <input type="text" placeholder="Location">
+      <button>
+        Search
+      </button>
+    </form>
+    <p id="message-1"></p>
+    <p id="message-2"></p>
     </div>
+    
+    
+    
     {{>footer}}
     
 
@@ -32,5 +43,6 @@
       integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
       crossorigin="anonymous"
     ></script>
+    <script src="/js/script.js"></script>
   </body>
 </html>
