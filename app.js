@@ -16,29 +16,31 @@ app.set("view engine", "hbs");
 app.set("views", viewPath);
 hbs.registerPartials(partialPath);
 
-app.get("/weather", (req, res) => {
+app.get("/", (req, res) => {
   res.render("index", {
     title: "Weather",
     name: "Akinola Gabriel",
   });
-  // const address = req.query.address;
+});
+app.get("/weather", (req, res) => {
+  const address = req.query.address;
 
-  // if (!address) {
-  //   return res.send({ error: "You must provide an address" });
-  // }
+  if (!address) {
+    return res.send({ error: "You must provide an address" });
+  }
 
-  // geocode(address, (err, { latitude, longitude, location } = {}) => {
-  //   if (err) {
-  //     console.log({ err });
-  //     return res.send({ err });
-  //   }
-  //   weather(latitude, longitude, (err, forecastdata) => {
-  //     if (err) {
-  //       return res.send({ err });
-  //     }
-  //     res.send({ forecastdata, location, address });
-  //   });
-  // });
+  geocode(address, (err, { latitude, longitude, location } = {}) => {
+    if (err) {
+      console.log({ err });
+      return res.send({ err });
+    }
+    weather(latitude, longitude, (err, forecastdata) => {
+      if (err) {
+        return res.send({ err });
+      }
+      res.send({ forecastdata, location, address });
+    });
+  });
 });
 
 app.get("*", (req, res) => {
