@@ -1,10 +1,10 @@
 console.log("Client side javascript is loaded");
 
-fetch("http://puzzle.mead.io/puzzle").then((response) => {
-  response.json().then((data) => {
-    console.log(data);
-  });
-});
+// fetch("http://puzzle.mead.io/puzzle").then((response) => {
+//   response.json().then((data) => {
+//     console.log(data);
+//   });
+// });
 
 //Manipulating the dom
 const weatherForm = document.querySelector("form");
@@ -18,15 +18,13 @@ weatherForm.addEventListener("submit", (e) => {
 
   messageOne.textContent = "Loading.....";
   messageTwo.textContent = "";
-  fetch(`http://localhost:3000/weather?address=${location}`).then(
-    (response) => {
-      response.json().then((data) => {
-        if (data.err) {
-          return (messageOne.innerHTML = data.err);
-        }
-        messageOne.innerHTML = data.location;
-        messageTwo.innerHTML = data.forecastdata;
-      });
-    }
-  );
+  fetch(`/weather?address=${location}`).then((response) => {
+    response.json().then((data) => {
+      if (data.err) {
+        return (messageOne.innerHTML = data.err);
+      }
+      messageOne.innerHTML = data.location;
+      messageTwo.innerHTML = data.forecastdata;
+    });
+  });
 });
